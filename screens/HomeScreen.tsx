@@ -60,7 +60,9 @@ const HomeScreen = () => {
       <SafeAreaView className={ios ? "-mb-2" : "mb-3"}>
         <StatusBar barStyle="light-content" />
         <View className="flex-row items-center p-4 justify-between">
-          <Bars3CenterLeftIcon color="white" size={30} strokeWidth={2} />
+          <TouchableOpacity onPress={() => navigation.openDrawer()}>
+            <Bars3CenterLeftIcon color="white" size={30} strokeWidth={2} />
+          </TouchableOpacity>
           <Text className="text-white font-bold text-3xl">
             <Text className="text-red-500">M</Text>ovies
           </Text>

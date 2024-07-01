@@ -29,7 +29,7 @@ const TrendingMovies = ({ data }: any) => {
           autoPlay={true}
           data={data}
           mode="parallax"
-          scrollAnimationDuration={100}
+          scrollAnimationDuration={1800}
           onSnapToItem={(index) => console.log("current index:", index)}
           renderItem={({ item }) => (
             <MovieCard item={item} handleClick={handleClick} />
