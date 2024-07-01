@@ -21,7 +21,10 @@ export default function MovieList({ title, data, hideSeeAll }: any) {
       <View className="mx-4 flex-row justify-between items-center">
         <Text className="text-white text-xl">{title}</Text>
         {!hideSeeAll && (
-          <TouchableOpacity className="text-white text-xl">
+          <TouchableOpacity
+            onPress={() => navigation.navigate(title)}
+            className="text-white text-xl"
+          >
             <Text className="text-red-500 text-xl">See All</Text>
           </TouchableOpacity>
         )}
