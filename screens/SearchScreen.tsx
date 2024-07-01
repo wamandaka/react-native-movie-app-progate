@@ -12,30 +12,29 @@ import React, { useCallback, useState } from "react";
 import { XMarkIcon } from "react-native-heroicons/outline";
 import { useNavigation } from "@react-navigation/native";
 import Loading from "../components/loading";
-import debounce from 'lodash/debounce';
+import debounce from "lodash/debounce";
 import { fetchSearchMovie, image342 } from "../api/moviedb";
 import { includes } from "lodash";
 
 export default function SearchScreen() {
-  let movieName = "Dungon Meshi: The Animationnnnnnnnnnnnnnnn";
   const navigation: any = useNavigation();
   const { width, height } = Dimensions.get("window");
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
   const handleSearch = (value: any) => {
     // console.log(value);
-    if(value && value.length>2){
+    if (value && value.length > 2) {
       setLoading(true);
       fetchSearchMovie({
         query: value,
         page: 1,
         include_adult: false,
         language: "en-US",
-      }).then(data=> {
+      }).then((data) => {
         setLoading(false);
         // console.log(data);
-        if(data && data?.results) setResults(data?.results);
-      })
+        if (data && data?.results) setResults(data?.results);
+      });
     } else {
       setLoading(false);
       setResults([]);
