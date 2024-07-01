@@ -21,6 +21,7 @@ import {
   fetchTrendingMovies,
   fetchUpcomingMovies,
 } from "../api/moviedb";
+import { robotoWeights } from "react-native-typography";
 
 const ios = Platform.OS === "ios";
 const HomeScreen = () => {
@@ -63,8 +64,11 @@ const HomeScreen = () => {
           <TouchableOpacity onPress={() => navigation.openDrawer()}>
             <Bars3CenterLeftIcon color="white" size={30} strokeWidth={2} />
           </TouchableOpacity>
-          <Text className="text-white font-bold text-3xl">
-            <Text className="text-red-500">M</Text>ovies
+          <Text
+            style={robotoWeights.condensedBold}
+            className="text-white font-bold text-3xl"
+          >
+            Movie<Text className="text-red-500">App</Text>
           </Text>
           <TouchableOpacity onPress={() => navigation.navigate("Search")}>
             <MagnifyingGlassIcon color="white" size={30} strokeWidth={2} />
