@@ -49,8 +49,8 @@ export default function MovieList({ title, data, hideSeeAll }: any) {
                   className="rounded-3xl bg-cover"
                 />
                 <Text className="text-neutral-400 ml-1">
-                  {item.original_title.length > 20
-                    ? item.original_title.slice(0, 20) + "..."
+                  {item.original_title.length > 17
+                    ? item.original_title.slice(0, 17) + "..."
                     : item.original_title}
                 </Text>
               </View>

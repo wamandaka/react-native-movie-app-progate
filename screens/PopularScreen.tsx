@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   Dimensions,
   ScrollView,
+  SafeAreaView,
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import {
@@ -29,8 +30,8 @@ const PopularScreen = () => {
   };
 
   return (
-    <View>
-      <View className="mx-4 my-3 flex-row justify-between items-center rounded-full">
+    <SafeAreaView className="flex-1 bg-neutral-800">
+      <View className="absolute z-20 mx-4 my-3 flex-row justify-between items-center rounded-full">
         <TouchableOpacity
           onPress={() => navigation.goBack()}
           className="rounded-xl p-2 bg-orange-500"
@@ -38,7 +39,7 @@ const PopularScreen = () => {
           <ChevronLeftIcon color="white" size={30} />
         </TouchableOpacity>
       </View>
-      <Text className="text-white text-center text-4xl mb-5">
+      <Text className="text-white text-center text-3xl my-4">
         Popular Movie
       </Text>
       <ScrollView
@@ -71,7 +72,7 @@ const PopularScreen = () => {
           })}
         </View>
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 };
 

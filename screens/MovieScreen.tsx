@@ -10,7 +10,7 @@ import {
 import React, { useEffect, useState } from "react";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { ChevronLeftIcon } from "react-native-heroicons/outline";
-import { HeartIcon, HomeIcon } from "react-native-heroicons/solid";
+import { HeartIcon } from "react-native-heroicons/solid";
 import { LinearGradient } from "expo-linear-gradient";
 import Cast from "../components/cast";
 import MovieList from "../components/movieList";
@@ -21,6 +21,11 @@ import {
   fetchSimilarMovies,
   image500,
 } from "../api/moviedb";
+import {
+  saveFavoriteMovie,
+  getFavoriteMovies,
+  removeFavoriteMovie,
+} from "../constant/storage";
 
 export default function MovieScreen() {
   // let movieName = "Dungon Meshi: The Animation";
@@ -39,6 +44,7 @@ export default function MovieScreen() {
     getMovieDetails(item.id);
     getMovieCredits(item.id);
     getSimilarMovies(item.id);
+    checkIfFavorite(item.id);
   }, [item]);
   const getMovieDetails = async (id: any) => {
     const data = await fetchMovieDetails(id);
@@ -59,6 +65,21 @@ export default function MovieScreen() {
     if (data && data?.results) setSimilarMovies(data?.results);
   };
 
+  const checkIfFavorite = async (id: any) => {
+    const favoriteMovies = await getFavoriteMovies();
+    const isFav = favoriteMovies.some((movie: any) => movie.id === id);
+    setIsFavorite(isFav);
+  };
+
+  const toggleFavorite = async () => {
+    if (isFavorite) {
+      await removeFavoriteMovie(movie.id);
+    } else {
+      await saveFavoriteMovie(movie);
+    }
+    setIsFavorite(!isFavorite);
+  };
+
   return (
     <ScrollView
       contentContainerStyle={{ paddingBottom: 20 }}
@@ -72,7 +93,7 @@ export default function MovieScreen() {
           >
             <ChevronLeftIcon color="white" size={30} />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => setIsFavorite(!isFavorite)}>
+          <TouchableOpacity onPress={toggleFavorite}>
             <HeartIcon color={isFavorite ? "red" : "white"} size={40} />
           </TouchableOpacity>
         </SafeAreaView>

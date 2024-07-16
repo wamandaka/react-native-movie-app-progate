@@ -30,7 +30,7 @@ const TrendingMovies = ({ data }: any) => {
           data={data}
           mode="parallax"
           scrollAnimationDuration={1800}
-          onSnapToItem={(index) => console.log("current index:", index)}
+          // onSnapToItem={(index) => console.log("current index:", index)}
           renderItem={({ item }) => (
             <MovieCard item={item} handleClick={handleClick} />
           )}
