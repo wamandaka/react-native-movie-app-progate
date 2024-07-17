@@ -9,8 +9,7 @@ import {
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import { useNavigation, useRoute } from "@react-navigation/native";
-import { ChevronLeftIcon } from "react-native-heroicons/outline";
-import { HeartIcon } from "react-native-heroicons/solid";
+import Icon from "react-native-vector-icons/FontAwesome6";
 import { LinearGradient } from "expo-linear-gradient";
 import Cast from "../components/cast";
 import MovieList from "../components/movieList";
@@ -89,12 +88,12 @@ export default function MovieScreen() {
         <SafeAreaView className="absolute z-20 w-full flex-row justify-between items-center p-4 mt-3">
           <TouchableOpacity
             onPress={() => navigation.goBack()}
-            className="rounded-xl p-1 bg-orange-500"
+            className="rounded-xl p-3 bg-orange-500"
           >
-            <ChevronLeftIcon color="white" size={30} />
+            <Icon name="chevron-left" color="white" size={30} />
           </TouchableOpacity>
           <TouchableOpacity onPress={toggleFavorite}>
-            <HeartIcon color={isFavorite ? "red" : "white"} size={40} />
+            <Icon name="heart" color={isFavorite ? "red" : "white"} size={40} />
           </TouchableOpacity>
         </SafeAreaView>
         {loading ? (

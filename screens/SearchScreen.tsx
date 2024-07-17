@@ -9,7 +9,7 @@ import {
   Image,
 } from "react-native";
 import React, { useCallback, useState } from "react";
-import { XMarkIcon } from "react-native-heroicons/outline";
+import Icon from "react-native-vector-icons/FontAwesome6";
 import { useNavigation } from "@react-navigation/native";
 import Loading from "../components/loading";
 import debounce from "lodash/debounce";
@@ -53,9 +53,9 @@ export default function SearchScreen() {
         />
         <TouchableOpacity
           onPress={() => navigation.navigate("Home")}
-          className="p-3 m-1 rounded-full bg-neutral-500"
+          className="p-6 m-1 rounded-full bg-neutral-500"
         >
-          <XMarkIcon color="white" size={30} />
+          <Icon name="xmark" color="white" size={20} />
         </TouchableOpacity>
       </View>
       {/* results */}

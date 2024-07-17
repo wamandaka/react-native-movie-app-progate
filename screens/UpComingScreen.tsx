@@ -10,7 +10,7 @@ import {
 import React, { useEffect, useState } from "react";
 import { fetchUpcomingMovies, image342 } from "../api/moviedb";
 import { useNavigation } from "@react-navigation/native";
-import { ChevronLeftIcon } from "react-native-heroicons/solid";
+import Icon from "react-native-vector-icons/FontAwesome6";
 
 export default function UpComingScreen() {
   const [upcoming, setUpcoming] = useState([]);
@@ -31,7 +31,7 @@ export default function UpComingScreen() {
           onPress={() => navigation.goBack()}
           className="rounded-xl p-2 bg-orange-500"
         >
-          <ChevronLeftIcon color="white" size={30} />
+          <Icon name="chevron-left" color="white" size={30} />
         </TouchableOpacity>
       </View>
       <Text className="text-white text-center text-3xl my-4">

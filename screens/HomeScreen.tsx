@@ -8,10 +8,7 @@ import {
   ScrollView,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import {
-  Bars3CenterLeftIcon,
-  MagnifyingGlassIcon,
-} from "react-native-heroicons/outline";
+import Icon from "react-native-vector-icons/FontAwesome6";
 import TrendingMovies from "../components/trendingMovies";
 import MovieList from "../components/movieList";
 import { useNavigation } from "@react-navigation/native";
@@ -62,7 +59,7 @@ const HomeScreen = () => {
         <StatusBar barStyle="light-content" />
         <View className="flex-row items-center p-4 justify-between">
           <TouchableOpacity onPress={() => navigation.openDrawer()}>
-            <Bars3CenterLeftIcon color="white" size={30} strokeWidth={2} />
+            <Icon name="bars" color="white" size={30} />
           </TouchableOpacity>
           <Text
             style={robotoWeights.condensedBold}
@@ -71,7 +68,7 @@ const HomeScreen = () => {
             Movie<Text className="text-red-500">App</Text>
           </Text>
           <TouchableOpacity onPress={() => navigation.navigate("Search")}>
-            <MagnifyingGlassIcon color="white" size={30} strokeWidth={2} />
+            <Icon name="magnifying-glass" color="white" size={30} />
           </TouchableOpacity>
         </View>
       </SafeAreaView>

@@ -14,7 +14,7 @@ import {
   image342,
 } from "../api/moviedb";
 import { useNavigation } from "@react-navigation/native";
-import { ChevronLeftIcon } from "react-native-heroicons/solid";
+import Icon from "react-native-vector-icons/FontAwesome6";
 const PopularScreen = () => {
   const [popular, setPopular] = useState([]);
   const navigation: any = useNavigation();
@@ -36,7 +36,7 @@ const PopularScreen = () => {
           onPress={() => navigation.goBack()}
           className="rounded-xl p-2 bg-orange-500"
         >
-          <ChevronLeftIcon color="white" size={30} />
+          <Icon name="chevron-left" color="white" size={30} />
         </TouchableOpacity>
       </View>
       <Text className="text-white text-center text-3xl my-4">

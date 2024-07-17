@@ -8,7 +8,7 @@ import {
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import { TouchableOpacity } from "react-native";
-import { ChevronLeftIcon } from "react-native-heroicons/solid";
+import Icon from "react-native-vector-icons/FontAwesome6";
 import { useFocusEffect, useNavigation } from "@react-navigation/native";
 import { getFavoriteMovies } from "../constant/storage";
 import { image342 } from "../api/moviedb";
@@ -33,7 +33,7 @@ export default function FavoriteScreen() {
           onPress={() => navigation.goBack()}
           className="rounded-xl p-2 bg-orange-500"
         >
-          <ChevronLeftIcon color="white" size={30} />
+          <Icon name="chevron-left" color="white" size={30} />
         </TouchableOpacity>
       </View>
       <Text className="text-white text-center text-3xl my-4">
